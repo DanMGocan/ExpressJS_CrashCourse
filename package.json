@@ -1,0 +1,27 @@
+{
+  "name": "expressjs_crashcourse",
+  "version": "1.0.0",
+  "description": "Doing a bit of learning around Express.js",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main",
+    "dev": "nodemon main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanMGocan/ExpressJS_CrashCourse.git"
+  },
+  "author": "Dan Gocan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanMGocan/ExpressJS_CrashCourse/issues"
+  },
+  "homepage": "https://github.com/DanMGocan/ExpressJS_CrashCourse#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
