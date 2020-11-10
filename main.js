@@ -10,7 +10,7 @@ app.listen(PORT, () => {
 / route */
 
 app.get("/", (req, res) => {
-    res.send("What is love?");
+    res.send("What is love? Baby, hurt me not!");
 })
 
 /* We install NODEMON package so we do not have to constantly refresh the server. 
