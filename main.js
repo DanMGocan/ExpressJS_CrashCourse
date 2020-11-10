@@ -34,12 +34,13 @@ const basics = () => {
 
 const middlewareAndRoutes = () => {
 
-    const members = require("./members");
+    const members = require("./Members");
     const express = require("express");
     const moment = require("moment");
     const app = express();
     const PORT = process.env.PORT || 4001;
 
+    
 
     app.listen(PORT, () => {
         console.log("The server has been started at port number " + PORT);
@@ -69,17 +70,22 @@ const middlewareAndRoutes = () => {
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 4001;
-const members = require("./members.js");
+
+const bodyParser = require("body-parser");
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
+
+/** Members API Routes */
+app.use("/api/members", require("./routes/api/members")); // imports and uses the Members routes from the API folder
 
 app.listen(PORT, () => {
     console.log(`Server started on port number: ${PORT}`)
 });
 
-app.get("/api/members", (req, res) => res.json(members));
+/* Body parser, middleware */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); // allows us to handle URL encoded data
 
-/* Return the object in the members array which maches with the ID === req.params.id condition */
-app.get("/api/members/:id", (req, res) => {
-    res.json(members.filter(member => {
-        return member.id === parseInt(req.params.id);
-    }))
-});
+
+ 
